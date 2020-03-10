@@ -1,4 +1,13 @@
 #!/bin/bash
+
+if command ffmpeg -version >/dev/null 2>&1 ; then
+    echo "ffmpeg found"
+else
+    echo "ffmpeg not found"
+    echo "Downloading ffmpeg"
+    command sudo apt install ffmpeg
+fi
+
 echo "renaming..."
 i=0;  for j in *.gif;   do mv "$j" "$i.gif";  (( i++ ));   done
 echo "rename completed"
